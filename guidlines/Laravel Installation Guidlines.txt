@@ -1,0 +1,16 @@
+For Installation Of Laravel:
+- Download Xampp
+- Download and install composer 
+---------------------------------
+There are two ways for install laravel:
+	- Through Composer
+	- Directly Install
+		- Step # 1 ( only one time) : composer global require laravel/installer
+		- Step # 2 : Laravel new project-name 
+--------------------
+Main Folders Location:
+Model : App\Models
+Controller : App\Http\Controller
+View : Resource\views\
+Routes: Web.php
+
