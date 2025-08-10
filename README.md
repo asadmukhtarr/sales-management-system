@@ -35,4 +35,12 @@
     Controller : App\Http\Controller
     View : Resource\views\
     Routes: Web.php
+# Commands for gihtub
+    - When you want to clone a project:
+        - git clone project-link 
+    - For Push Project Files On Github ..
+        - Step # 1: git add .
+        - Step # 2: git commit -m "Add HEre Message"
+        - Step # 3: git push
+        
 
