@@ -35,6 +35,12 @@
     Controller : App\Http\Controller
     View : Resource\views\
     Routes: Web.php
+# Auth With Vue In Laravel ...
+    - Step # 1 : Download And Install Nodejs ..
+    - Step # 2 : run command: composer require laravel/ui
+    - Step # 3 : run command: php artisan ui vue --auth
+    - Step # 4 : npm install and npm run dev
+    - step # 5 : php artisan migrate (After connect database with env)
 # Commands for gihtub
     - When you want to clone a project:
         - git clone project-link 
@@ -42,5 +48,24 @@
         - Step # 1: git add .
         - Step # 2: git commit -m "Add HEre Message"
         - Step # 3: git push
-        
+# Assignment # 1:
+    - Create an new laravel project and make authentication system with vue.
+        - Guidelines For Authentication ..
+            - laravel new project
+                - Step # 1 : Download And Install Nodejs ..
+                - Step # 2 : run command: composer require laravel/ui
+                - Step # 3 : run command: php artisan ui vue --auth
+                - Step # 4 : npm install and npm run dev (npm install --force)
+                - step # 5 : php artisan migrate (After connect database with env)
+    - Seprate Header And Footer In Laravel ..
+# Project Semi Documentation ...
+    - Login System ..
+    - Dashboard
+    - Products ( Create Product, All Products , Single Product)
+    - Sales ( New Sale , All Sales)
+    - Analytics
+    - User Management
+    - Logout
+    
+
 
