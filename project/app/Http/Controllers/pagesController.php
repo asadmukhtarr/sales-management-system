@@ -38,5 +38,9 @@ class pagesController extends Controller
         return view('admin.analytics');
     }
     // analytics
+    // categories 
+    public function categories(){
+        return view('admin.products.categories');
+    }
     
 }

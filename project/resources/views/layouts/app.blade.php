@@ -62,6 +62,11 @@
                                         <i class="fa fa-plus"></i> Create Product
                                     </a>
                                 </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.categories') }}">
+                                        <i class="fa fa-list"></i> Categories
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
