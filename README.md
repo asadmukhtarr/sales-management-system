@@ -66,6 +66,8 @@
     - Analytics
     - User Management
     - Logout
+# Interview Question:
+    - What is command to make model and migration together: php artisan make:model model-project -m
     
 
 

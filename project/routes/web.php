@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
+use App\Http\Controllers\categoryController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -12,7 +13,7 @@ Route::prefix('admin')->group(function(){
     // products ..
     Route::prefix('products')->group(function(){
         Route::get('/create',[pagesController::class,'create_product'])->name('admin.products.create');
-        Route::get('/categories',[pagesController::class,'categories'])->name('admin.categories');
+        Route::resource('/categories',categoryController::class);
         Route::get('/',[pagesController::class,'products'])->name('admin.products');
     });
     // sales ..

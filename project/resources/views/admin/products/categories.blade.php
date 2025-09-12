@@ -10,7 +10,7 @@
             <div class="card shadow-sm border-0 rounded-3 mb-4">
                 <div class="card-body">
                     <h5 class="mb-3"><i class="fa fa-plus-circle text-success"></i> Create New Category</h5>
-                    <form action="#" method="POST">
+                    <form action="{{route('categories.store') }}" method="POST">
                         @csrf
 
                         <!-- Category Title -->
