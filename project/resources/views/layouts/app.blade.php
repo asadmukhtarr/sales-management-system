@@ -63,7 +63,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('categories.create') }}">
+                                    <a class="dropdown-item" href="{{ route('categories.index') }}">
                                         <i class="fa fa-list"></i> Categories
                                     </a>
                                 </li>

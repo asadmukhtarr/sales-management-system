@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container py-4">
+    @include('includes.flash')
+    <br />
     <h2 class="mb-4"><i class="fa fa-tags text-primary"></i> Manage Categories</h2>
 
     <div class="row">
@@ -37,18 +39,30 @@
                         <thead class="table-light">
                             <tr>
                                 <th><i class="fa fa-tag"></i> Title</th>
+                                <th> <i class="fa fa-clock-o"></i> Posted </th>
                                 <th><i class="fa fa-cogs"></i> Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Sample Category 1 -->
+                            @foreach($category as $categories)
                             <tr>
-                                <td>Electronics</td>
+                                <td>{{ $categories->title }}</td>
+                                <td>{{ $categories->created_at->diffForHumans() }}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-info m-1"><i class="fa fa-pencil"></i> Edit</button>
-                                    <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                                    <a href="{{ route('categories.edit',$categories->id) }}">
+                                        <button class="btn btn-sm btn-info m-1"><i class="fa fa-pencil"></i> Edit</button>
+                                    </a>
+                                    <form action="{{ route('categories.destroy', $categories->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">
+                                            <i class="fa fa-trash"></i> Delete
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
