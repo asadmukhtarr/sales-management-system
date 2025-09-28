@@ -13,6 +13,7 @@ Route::prefix('admin')->group(function(){
     // products ..
     Route::prefix('products')->group(function(){
         Route::get('/create',[pagesController::class,'create_product'])->name('admin.products.create');
+        Route::post('/save',[pagesController::class,'save_product'])->name('admin.products.save');
         Route::resource('/categories',categoryController::class);
         Route::get('/',[pagesController::class,'products'])->name('admin.products');
     });

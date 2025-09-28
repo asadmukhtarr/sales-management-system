@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\category;
 
 class pagesController extends Controller
 {
@@ -16,7 +17,19 @@ class pagesController extends Controller
     }
     // create products ...
     public function create_product(){
-        return view('admin.products.create');
+        $categories = category::all();
+        return view('admin.products.create',compact('categories'));
+    }
+    // save product ..
+    public function save_product(Request $request){
+           $validated = $request->validate([
+                'title' => 'required|min:5',
+                'description' => 'required',
+                'price' => 'required',
+                'category' => 'required',
+                'image' => 'required',
+            ]);
+        return $request;
     }
     // for sales sections ...
     public function new_sales(){
