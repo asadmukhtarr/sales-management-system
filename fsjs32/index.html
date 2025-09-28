@@ -8,8 +8,29 @@
 <body>
     <h1>Hello World</h1>
     <input type="text" id="number1">
-    <button onclick="testOne()">Get Me</button> <br /> <br />
-    <button type="button" onclick="test(2,93)">Click Me</button>
+    <button onClick="calculate(this.value)" onclick="testOne()">Get Me</button> <br /> <br />
+    <button onClick="calculate(this.value)" type="button" onclick="test(2,93)">Click Me</button>
+    <hr />
+    <input type="text" id="result" />
+    <br /> <br />
+    <button onClick="calculate(this.value)" type="button" value="1">1</button>
+    <button onClick="calculate(this.value)" type="button" value="2">2</button>
+    <button onClick="calculate(this.value)" type="button" value="3">3</button>
+    <button onClick="calculate(this.value)" type="button" value="4">4</button>
+    <button onClick="calculate(this.value)" type="button" value="5">5</button>
+    <button onClick="calculate(this.value)" type="button" value="6">6</button> 
+    <br /> <br />
+    <button onClick="calculate(this.value)" type="button" value="7">7</button>
+    <button onClick="calculate(this.value)" type="button" value="8">8</button>
+    <button onClick="calculate(this.value)" type="button" value="9">9</button>
+    <button onClick="calculate(this.value)" type="button" value="0">0</button>
+    <button onClick="calculate(this.value)" type="button" value="+">+</button>
+    <button onClick="calculate(this.value)" type="button" value="/">/</button>
+    <br /> <br />
+    <button onClick="calculate(this.value)" type="button" value="*">*</button>
+    <button onClick="calculate(this.value)" type="button" value="-">-</button>
+    <button onClick="calculate(this.value)" type="button" value="=">=</button>
+    <button onClick="calculate(this.value)" type="button" value="c">c</button>
     <script>
         function testOne(){
             // document = web page ..
@@ -20,6 +41,18 @@
         }
         function test(x,y){
            console.log(x+y);
+        }
+        function calculate(v){
+            var c = document.getElementById("result").value;
+            if(v == "="){
+               // alert(c);
+                document.getElementById("result").value = eval(c); 
+            } else if(v == "c"){
+                 document.getElementById("result").value = "";
+            } else {
+                c = c + v;
+                document.getElementById("result").value = c;
+            }
         }
         let name = "Asad Mukhtar";
         let second = "Mukhtar Ahmed";
