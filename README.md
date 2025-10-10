@@ -68,6 +68,9 @@
     - Logout
 # Interview Question:
     - What is command to make model and migration together: php artisan make:model model-project -m
+# Installation of react ...
+    - Step # 1: Download NodeJS And Install
+    - Step # 2: Npx create-react-app project-name ... ( React Project Install)
     
 
 
