@@ -71,6 +71,7 @@
 # Installation of react ...
     - Step # 1: Download NodeJS And Install
     - Step # 2: Npx create-react-app project-name ... ( React Project Install)
+    - Step # 3 : npm start ( For Project Run ) ..
     
 
 
