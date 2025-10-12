@@ -1,0 +1,8 @@
+const Users = () => {
+    return (
+        <div>
+            <h3>Hello Users</h3>
+        </div>
+    )
+}
+export default Users;

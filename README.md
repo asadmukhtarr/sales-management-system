@@ -68,10 +68,16 @@
     - Logout
 # Interview Question:
     - What is command to make model and migration together: php artisan make:model model-project -m
-# Installation of react ...
-    - Step # 1: Download NodeJS And Install
-    - Step # 2: Npx create-react-app project-name ... ( React Project Install)
-    - Step # 3 : npm start ( For Project Run ) ..
+# React Lessons
+    - Installation of react ...
+        - Step # 1: Download NodeJS And Install
+        - Step # 2: Npx create-react-app project-name ... ( React Project Install)
+        - Step # 3 : npm start ( For Project Run ) ..
+    - Routes In React
+        - Step # 1: Install Package : npm install react-route-dom
+        - Step # 2: Import import { BrowserRouter , Router , Route } from "react-router-dom"; In App.jsx
+        - Step # 3: Close Complete App.jsx Code Inside <BrowserRouter /> , Make Routes ...
+        - Step # 4: Import Link In Header or where you want to use links and then call routes ..
     
 
 
