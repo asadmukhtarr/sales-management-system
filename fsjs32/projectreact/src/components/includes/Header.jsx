@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function Header(props) {
   return (
     <div>
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-purple shadow-sm py-3">
         <div className="container">
           <Link className="navbar-brand fw-bold text-warning d-flex align-items-center" to="/">
             <i className="fa fa-car text-warning me-2"></i> {props.title}
