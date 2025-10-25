@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 const Users = () => {
     const [name,setName] = useState();
     const [email,setEmail] = useState();
     const [password,setPassword] = useState();
     const [cpassword,setCpassword] = useState();
     const [error,setError] = useState();
-    const formHandle = (e) => {
+    const [users,setUsers] = useState([]);
+    const formHandle = async (e) => {
         e.preventDefault(); // ⛔ Prevent page reload
         if(cpassword === password){
             const user = {
@@ -13,12 +14,45 @@ const Users = () => {
                 email:email,
                 password:password
             }
-            console.log(user);
-            // data will send to api ..
+            const response = await fetch("https://68fb7dc894ec9606602638e5.mockapi.io/users",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json",
+                },
+                body:JSON.stringify(user)
+            });
+            const data = await response.json();
+            console.log("User Created Succesfully",data);
+            fetchUsers();
+            setName(null);
+            setEmail(null);
+            setPassword(null);
+            setCpassword(null);
         } else {
             setError("Password did not match");
         }
     }
+    const fetchUsers = async () => {
+        const response = await fetch("https://68fb7dc894ec9606602638e5.mockapi.io/users");   
+        const data = await response.json();
+
+        // Reverse the array to get descending order (if you want it in reverse order)
+        const students = data.reverse(); 
+        setUsers(students);
+    }
+    const deleteUser = async (id) => {
+        if(window.confirm("Are you sure? you want to delete user.") === true){
+             const response = await fetch("https://68fb7dc894ec9606602638e5.mockapi.io/users/"+id,{
+                method:"DELETE",
+            });
+            const data = await response.json();
+            console.log('user deleted',data);
+            fetchUsers();
+        }
+    }
+    useEffect(function(){
+        fetchUsers();
+    },[]);
     return (
         <div>
             <div className="row mt-3">
@@ -73,48 +107,27 @@ const Users = () => {
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Index</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                 <tr>
-                                    <td>1</td>
-                                    <td>Muhammad Asad</td>
-                                    <td>axad03213@gmail.com</td>
-                                    <td className="p-1">
-                                        <button className="btn btn-sm btn-success"><i className="fa fa-edit"></i></button>
-                                        <button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Muhammad Asad</td>
-                                    <td>axad03213@gmail.com</td>
-                                    <td className="p-1">
-                                        <button className="btn btn-sm btn-success"><i className="fa fa-edit"></i></button>
-                                        <button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Muhammad Asad</td>
-                                    <td>axad03213@gmail.com</td>
-                                    <td className="p-1">
-                                        <button className="btn btn-sm btn-success"><i className="fa fa-edit"></i></button>
-                                        <button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Muhammad Asad</td>
-                                    <td>axad03213@gmail.com</td>
-                                    <td className="p-1">
-                                        <button className="btn btn-sm btn-success"><i className="fa fa-edit"></i></button>
-                                        <button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>
+                               { users.map((user,index) => (
+                                    <tr key={user.id}>
+                                        <td>{user.id}</td>
+                                        <td>{index+1}</td>
+                                        <td>{user.name}</td>
+                                        <td>{user.email}</td>
+                                        <td className="p-1">
+                                            <a href={`user/edit/${user.id}`}>
+                                                <button className="btn btn-sm btn-success m-2"><i className="fa fa-edit"></i></button>
+                                            </a>
+                                            <button className="btn btn-sm btn-danger" onClick={e => deleteUser(user.id)}><i className="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                               ))}
                             </tbody>   
                         </table>
                     </div>
